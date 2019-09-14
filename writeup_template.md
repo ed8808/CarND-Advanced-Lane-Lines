@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./camera_cal/calibration2.png "Original Image with radial distortion"
-[image2]: ./output_images/calibration2.png "Undistorted Image"
+[image1]: camera_cal/calibration2.png "Original Image with radial distortion"
+[image2]: output_images/calibration2.png "Undistorted Image"
 [image3]: ./test_images/straight_lines2.png "Straight Lane"
 [image4]: ./s_gradient/straight_lines2.png "Applied Sobel X -> S (HLS) and V (HSV) color space re-map"
 [image5]: ./b_warped/straight_lines2.png "2D bird-eye view"
