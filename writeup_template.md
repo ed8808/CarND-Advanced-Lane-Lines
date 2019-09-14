@@ -17,13 +17,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: camera_cal/calibration2.png "Original Image with radial distortion"
-[image2]: output_images/calibration2.png "Undistorted Image"
-[image3]: ./test_images/straight_lines2.png "Straight Lane"
-[image4]: ./s_gradient/straight_lines2.png "Applied Sobel X -> S (HLS) and V (HSV) color space re-map"
-[image5]: ./b_warped/straight_lines2.png "2D bird-eye view"
-[image6]: ./polyfit/straight_lines2.png "Fit 2nd order polynomial to interpolate lanes"
-[image7]: ./warped/straight_lines2.png "Project and overlay lane detection contour, estimated lane curvature and vehicle offset to mid road"
+[image1]: ./camera_cal/calibration2.jpg "Original Image with radial distortion"
+[image2]: ./output_images/calibration2.jpg "Undistorted Image"
+[image3]: ./test_images/straight_lines2.jpg "Straight Lane"
+[image4]: ./s_gradient/straight_lines2.jpg "Applied Sobel X -> S (HLS) and V (HSV) color space re-map"
+[image5]: ./b_warped/straight_lines2.jpg "2D bird-eye view"
+[image6]: ./polyfit/straight_lines2.jpg "Fit 2nd order polynomial to interpolate lanes"
+[image7]: ./warped/straight_lines2.jpg "Project and overlay lane detection contour, estimated lane curvature and vehicle offset to mid road"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
