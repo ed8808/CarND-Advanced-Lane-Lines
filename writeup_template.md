@@ -137,4 +137,8 @@ Here's a [link to my video result](./test_videos_output/project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+I spent relatively lots of time to get the array right for my calculation and passing in & out as parameters of functions.  Besides it is easy to mess up some parameters like left_fit, left_fitx from time to time.
+
+Putting the error checking and statistical filtering can also be time consuming that involved lots of trial and error.
+
+After all, it is a good project to learn and explore !
