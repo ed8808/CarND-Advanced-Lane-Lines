@@ -13115,7 +13115,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
@@ -13134,7 +13134,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import everything needed to edit/save/watch video clips</span>
@@ -13149,15 +13149,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define source ROI and target ROI</span>
 <span class="n">sROI</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">210</span><span class="p">,</span><span class="mi">720</span><span class="p">],[</span><span class="mi">1100</span><span class="p">,</span><span class="mi">720</span><span class="p">],[</span><span class="mi">720</span><span class="p">,</span><span class="mi">470</span><span class="p">],[</span><span class="mi">565</span><span class="p">,</span><span class="mi">470</span><span class="p">]]</span>
 <span class="n">dROI</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">320</span><span class="p">,</span><span class="mi">720</span><span class="p">],[</span><span class="mi">960</span><span class="p">,</span><span class="mi">720</span><span class="p">],[</span><span class="mi">960</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">320</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
-
-<span class="n">left_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">2.13935315e-04</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.77507980e-01</span><span class="p">,</span>  <span class="mf">4.76902175e+02</span><span class="p">])</span>
-<span class="n">right_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.17622148e-04</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.93848953e-01</span><span class="p">,</span>  <span class="mf">1.11806170e+03</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13167,7 +13164,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define a class to receive the characteristics of each line detection</span>
@@ -13176,13 +13173,13 @@ div#notebook {
         <span class="c1"># was the line detected in the last iteration?</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">detected</span> <span class="o">=</span> <span class="kc">False</span>  
         <span class="c1"># x values of the last n fits of the line</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">recent_xfitted</span> <span class="o">=</span> <span class="p">[]</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">recent_xfitted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
         <span class="c1">#average x values of the fitted line over the last n iterations</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bestx</span> <span class="o">=</span> <span class="kc">None</span>     
         <span class="c1">#polynomial coefficients averaged over the last n iterations</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">best_fit</span> <span class="o">=</span> <span class="kc">None</span>  
         <span class="c1">#polynomial coefficients for the most recent fit</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">current_fit</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">])]</span>  
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]])</span>
         <span class="c1">#radius of curvature of the line in some units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">radius_of_curvature</span> <span class="o">=</span> <span class="kc">None</span> 
         <span class="c1">#distance in meters of vehicle center from the line</span>
@@ -13206,7 +13203,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define global status for detection</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">Line</span><span class="p">()</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">Line</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13216,7 +13213,42 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">line_reset</span><span class="p">(</span><span class="n">_line</span><span class="p">):</span>
+    <span class="c1"># was the line detected in the last iteration?</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">detected</span> <span class="o">=</span> <span class="kc">False</span>  
+    <span class="c1"># x values of the last n fits of the line</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">recent_xfitted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="c1">#average x values of the fitted line over the last n iterations</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">bestx</span> <span class="o">=</span> <span class="kc">None</span>     
+    <span class="c1">#polynomial coefficients averaged over the last n iterations</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">best_fit</span> <span class="o">=</span> <span class="kc">None</span>  
+    <span class="c1">#polynomial coefficients for the most recent fit</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">current_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]])</span>
+    <span class="c1">#radius of curvature of the line in some units</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">radius_of_curvature</span> <span class="o">=</span> <span class="kc">None</span> 
+    <span class="c1">#distance in meters of vehicle center from the line</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">line_base_pos</span> <span class="o">=</span> <span class="kc">None</span> 
+    <span class="c1">#difference in fit coefficients between last and new fits</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">)</span> 
+    <span class="c1">#x values for detected line pixels</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">allx</span> <span class="o">=</span> <span class="kc">None</span>  
+    <span class="c1">#y values for detected line pixels</span>
+    <span class="n">_line</span><span class="o">.</span><span class="n">ally</span> <span class="o">=</span> <span class="kc">None</span> 
+    
+    <span class="k">return</span> <span class="n">_line</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Undistort the image with previous calibration parameters</span>
@@ -13236,7 +13268,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transform using Sobel X, S channel from HLS and V channel from HSV</span>
@@ -13285,7 +13317,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">region_of_interest</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">vertices</span><span class="p">):</span>
@@ -13321,7 +13353,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define a function that takes an image, number of x and y points, </span>
@@ -13353,7 +13385,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_lane_pixels</span><span class="p">(</span><span class="n">binary_warped</span><span class="p">):</span>
@@ -13417,7 +13449,6 @@ div#notebook {
         <span class="c1">### TO-DO: If you found &gt; minpix pixels, recenter next window ###</span>
         <span class="c1">### (`right` or `leftx_current`) on their mean position ###</span>
         <span class="c1">#pass # Remove this when you add your function</span>
-        <span class="nb">print</span><span class="p">((</span><span class="n">good_left_inds</span><span class="p">))</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">good_left_inds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">minpix</span><span class="p">:</span>
             <span class="n">leftx_current</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">nonzerox</span><span class="p">[</span><span class="n">good_left_inds</span><span class="p">]))</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">good_right_inds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">minpix</span><span class="p">:</span>        
@@ -13427,8 +13458,10 @@ div#notebook {
     <span class="k">try</span><span class="p">:</span>
         <span class="n">left_lane_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">left_lane_inds</span><span class="p">)</span>
         <span class="n">right_lane_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">right_lane_inds</span><span class="p">)</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
         <span class="c1"># Avoids an error if the above is not implemented fully</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">pass</span>
 
     <span class="c1"># Extract left and right line pixel positions</span>
@@ -13437,7 +13470,7 @@ div#notebook {
     <span class="n">rightx</span> <span class="o">=</span> <span class="n">nonzerox</span><span class="p">[</span><span class="n">right_lane_inds</span><span class="p">]</span>
     <span class="n">righty</span> <span class="o">=</span> <span class="n">nonzeroy</span><span class="p">[</span><span class="n">right_lane_inds</span><span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">leftx</span><span class="p">,</span> <span class="n">lefty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="n">righty</span><span class="p">,</span> <span class="n">out_img</span>
+    <span class="k">return</span> <span class="n">out_img</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="n">lefty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="n">righty</span><span class="p">,</span> <span class="n">err</span>
 </pre></div>
 
     </div>
@@ -13447,38 +13480,52 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_polynomial</span><span class="p">(</span><span class="n">binary_warped</span><span class="p">):</span>
-    <span class="c1"># Find our lane pixels first</span>
-    <span class="n">leftx</span><span class="p">,</span> <span class="n">lefty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="n">righty</span><span class="p">,</span> <span class="n">out_img</span> <span class="o">=</span> <span class="n">find_lane_pixels</span><span class="p">(</span><span class="n">binary_warped</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="c1">### TO-DO: Fit a second order polynomial to each using `np.polyfit` ###</span>
-    <span class="n">left_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">lefty</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">right_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">righty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
     <span class="c1"># Generate x and y values for plotting</span>
     <span class="n">ploty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">binary_warped</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">binary_warped</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">left_fitx</span> <span class="o">=</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">right_fitx</span> <span class="o">=</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-        <span class="c1"># Avoids an error if `left` and `right_fit` are still none or incorrect</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The function failed to fit a line!&#39;</span><span class="p">)</span>
-        <span class="n">left_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
-        <span class="n">right_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+    
+    <span class="c1"># Find our lane pixels first</span>
+    <span class="n">out_img</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="n">lefty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="n">righty</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">find_lane_pixels</span><span class="p">(</span><span class="n">binary_warped</span><span class="p">)</span>
 
-    <span class="c1">## Visualization ##</span>
-    <span class="c1"># Colors in the left and right lane regions</span>
-    <span class="n">out_img</span><span class="p">[</span><span class="n">lefty</span><span class="p">,</span> <span class="n">leftx</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-    <span class="n">out_img</span><span class="p">[</span><span class="n">righty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="c1">### TO-DO: Fit a second order polynomial to each using `np.polyfit` ###</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">left_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">lefty</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">right_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">righty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fit polynomial error!&#39;</span><span class="p">)</span>
+            <span class="n">left_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">right_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">left_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+            <span class="n">right_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="c1"># Plots the left and right polynomials on the lane lines</span>
-    <span class="c1">#plt.plot(left_fitx, ploty, color=&#39;yellow&#39;)</span>
-    <span class="c1">#plt.plot(right_fitx, ploty, color=&#39;yellow&#39;)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">left_fitx</span> <span class="o">=</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">right_fitx</span> <span class="o">=</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">err</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="c1"># Avoids an error if `left` and `right_fit` are still none or incorrect</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The function failed to fit a line!&#39;</span><span class="p">)</span>
+                <span class="n">left_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+                <span class="n">right_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+                <span class="n">err</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">return</span> <span class="n">out_img</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span>
+            <span class="c1">## Visualization ##</span>
+            <span class="c1"># Colors in the left and right lane regions</span>
+            <span class="n">out_img</span><span class="p">[</span><span class="n">lefty</span><span class="p">,</span> <span class="n">leftx</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">out_img</span><span class="p">[</span><span class="n">righty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>
+
+            <span class="c1"># Plots the left and right polynomials on the lane lines</span>
+            <span class="c1">#plt.plot(left_fitx, ploty, color=&#39;yellow&#39;)</span>
+            <span class="c1">#plt.plot(right_fitx, ploty, color=&#39;yellow&#39;)</span>
+    
+    <span class="k">return</span> <span class="n">out_img</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">err</span>
 </pre></div>
 
     </div>
@@ -13488,23 +13535,40 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fit_poly</span><span class="p">(</span><span class="n">img_shape</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="n">lefty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="n">righty</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span>
-    
-    <span class="c1">### TO-DO: Fit a second order polynomial to each with np.polyfit() ###</span>
-    <span class="n">left_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">lefty</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">right_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">righty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
     <span class="c1"># Generate x and y values for plotting</span>
     <span class="n">ploty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="c1">### TO-DO: Calc both polynomials using ploty, left_fit and right_fit ###</span>
-    <span class="n">left_fitx</span> <span class="o">=</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">right_fitx</span> <span class="o">=</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
     
-    <span class="k">return</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">ploty</span>
+    <span class="c1">### TO-DO: Fit a second order polynomial to each with np.polyfit() ###</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">left_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">lefty</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">right_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">righty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fit poly error!&#39;</span><span class="p">)</span>
+        <span class="n">left_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">right_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">left_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+        <span class="n">right_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="kc">True</span>
+        
+    <span class="k">if</span><span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>    
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1">### TO-DO: Calc both polynomials using ploty, left_fit and right_fit ###</span>
+            <span class="n">left_fitx</span> <span class="o">=</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">right_fitx</span> <span class="o">=</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="c1"># Avoids an error if `left` and `right_fit` are still none or incorrect</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The function failed to fit a line!&#39;</span><span class="p">)</span>
+            <span class="n">left_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+            <span class="n">right_fitx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">ploty</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">return</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">ploty</span><span class="p">,</span> <span class="n">err</span>
 </pre></div>
 
     </div>
@@ -13514,11 +13578,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use for window search of lane lines</span>
-<span class="k">def</span> <span class="nf">search_around_poly</span><span class="p">(</span><span class="n">binary_warped</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">search_around_poly</span><span class="p">(</span><span class="n">binary_warped</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="c1"># HYPERPARAMETER</span>
     <span class="c1"># Choose the width of the margin around the previous polynomial to search</span>
     <span class="c1"># The quiz grader expects 100 here, but feel free to tune on your own!</span>
@@ -13547,38 +13612,42 @@ div#notebook {
     <span class="n">righty</span> <span class="o">=</span> <span class="n">nonzeroy</span><span class="p">[</span><span class="n">right_lane_inds</span><span class="p">]</span>
 
     <span class="c1"># Fit new polynomials</span>
-    <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">ploty</span> <span class="o">=</span> <span class="n">fit_poly</span><span class="p">(</span><span class="n">binary_warped</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="n">lefty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="n">righty</span><span class="p">)</span>
+    <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">ploty</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">fit_poly</span><span class="p">(</span><span class="n">binary_warped</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">leftx</span><span class="p">,</span> <span class="n">lefty</span><span class="p">,</span> <span class="n">rightx</span><span class="p">,</span> <span class="n">righty</span><span class="p">)</span>
     
-    <span class="c1">## Visualization ##</span>
-    <span class="c1"># Create an image to draw on and an image to show the selection window</span>
-    <span class="n">out_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">((</span><span class="n">binary_warped</span><span class="p">,</span> <span class="n">binary_warped</span><span class="p">,</span> <span class="n">binary_warped</span><span class="p">))</span><span class="o">*</span><span class="mi">255</span>
-    <span class="n">window_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">out_img</span><span class="p">)</span>
-    <span class="c1"># Color in left and right line pixels</span>
-    <span class="n">out_img</span><span class="p">[</span><span class="n">nonzeroy</span><span class="p">[</span><span class="n">left_lane_inds</span><span class="p">],</span> <span class="n">nonzerox</span><span class="p">[</span><span class="n">left_lane_inds</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-    <span class="n">out_img</span><span class="p">[</span><span class="n">nonzeroy</span><span class="p">[</span><span class="n">right_lane_inds</span><span class="p">],</span> <span class="n">nonzerox</span><span class="p">[</span><span class="n">right_lane_inds</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="c1">## Visualization ##</span>
+        <span class="c1"># Create an image to draw on and an image to show the selection window</span>
+        <span class="n">out_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">((</span><span class="n">binary_warped</span><span class="p">,</span> <span class="n">binary_warped</span><span class="p">,</span> <span class="n">binary_warped</span><span class="p">))</span><span class="o">*</span><span class="mi">255</span>
+        <span class="n">window_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">out_img</span><span class="p">)</span>
+        
+        <span class="c1"># Color in left and right line pixels</span>
+        <span class="n">out_img</span><span class="p">[</span><span class="n">nonzeroy</span><span class="p">[</span><span class="n">left_lane_inds</span><span class="p">],</span> <span class="n">nonzerox</span><span class="p">[</span><span class="n">left_lane_inds</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">out_img</span><span class="p">[</span><span class="n">nonzeroy</span><span class="p">[</span><span class="n">right_lane_inds</span><span class="p">],</span> <span class="n">nonzerox</span><span class="p">[</span><span class="n">right_lane_inds</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">]</span>
 
-    <span class="c1"># Generate a polygon to illustrate the search window area</span>
-    <span class="c1"># And recast the x and y points into usable format for cv2.fillPoly()</span>
-    <span class="n">left_line_window1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">left_fitx</span><span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="n">ploty</span><span class="p">]))])</span>
-    <span class="n">left_line_window2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">left_fitx</span><span class="o">+</span><span class="n">margin</span><span class="p">,</span> 
-                              <span class="n">ploty</span><span class="p">])))])</span>
-    <span class="n">left_line_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">left_line_window1</span><span class="p">,</span> <span class="n">left_line_window2</span><span class="p">))</span>
-    <span class="n">right_line_window1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">right_fitx</span><span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="n">ploty</span><span class="p">]))])</span>
-    <span class="n">right_line_window2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">right_fitx</span><span class="o">+</span><span class="n">margin</span><span class="p">,</span> 
-                              <span class="n">ploty</span><span class="p">])))])</span>
-    <span class="n">right_line_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">right_line_window1</span><span class="p">,</span> <span class="n">right_line_window2</span><span class="p">))</span>
+        <span class="c1"># Generate a polygon to illustrate the search window area</span>
+        <span class="c1"># And recast the x and y points into usable format for cv2.fillPoly()</span>
+        <span class="n">left_line_window1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">left_fitx</span><span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="n">ploty</span><span class="p">]))])</span>
+        <span class="n">left_line_window2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">left_fitx</span><span class="o">+</span><span class="n">margin</span><span class="p">,</span> 
+                                  <span class="n">ploty</span><span class="p">])))])</span>
+                                  
+        <span class="n">left_line_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">left_line_window1</span><span class="p">,</span> <span class="n">left_line_window2</span><span class="p">))</span>
+        
+        <span class="n">right_line_window1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">right_fitx</span><span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="n">ploty</span><span class="p">]))])</span>
+        <span class="n">right_line_window2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">right_fitx</span><span class="o">+</span><span class="n">margin</span><span class="p">,</span> 
+                                  <span class="n">ploty</span><span class="p">])))])</span>
+        <span class="n">right_line_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">right_line_window1</span><span class="p">,</span> <span class="n">right_line_window2</span><span class="p">))</span>
+        
+        <span class="c1"># Draw the lane onto the warped blank image</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">fillPoly</span><span class="p">(</span><span class="n">window_img</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">([</span><span class="n">left_line_pts</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">fillPoly</span><span class="p">(</span><span class="n">window_img</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">([</span><span class="n">right_line_pts</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">addWeighted</span><span class="p">(</span><span class="n">out_img</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">window_img</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># Draw the lane onto the warped blank image</span>
-    <span class="n">cv2</span><span class="o">.</span><span class="n">fillPoly</span><span class="p">(</span><span class="n">window_img</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">([</span><span class="n">left_line_pts</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">cv2</span><span class="o">.</span><span class="n">fillPoly</span><span class="p">(</span><span class="n">window_img</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">([</span><span class="n">right_line_pts</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">addWeighted</span><span class="p">(</span><span class="n">out_img</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">window_img</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Plot the polynomial lines onto the image</span>
+        <span class="c1">#plt.plot(left_fitx, ploty, color=&#39;yellow&#39;)</span>
+        <span class="c1">#plt.plot(right_fitx, ploty, color=&#39;yellow&#39;)</span>
+        <span class="c1">## End visualization steps ##</span>
     
-    <span class="c1"># Plot the polynomial lines onto the image</span>
-    <span class="c1">#plt.plot(left_fitx, ploty, color=&#39;yellow&#39;)</span>
-    <span class="c1">#plt.plot(right_fitx, ploty, color=&#39;yellow&#39;)</span>
-    <span class="c1">## End visualization steps ##</span>
-    
-    <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">err</span>
 </pre></div>
 
     </div>
@@ -13588,11 +13657,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate left and right radius, offset of vehicle to midpoint of lane (right: +ve, left: -ve)</span>
-<span class="k">def</span> <span class="nf">measure_curvature_real</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">measure_curvature_real</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Calculates the curvature of polynomial functions in meters.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -13604,17 +13673,20 @@ div#notebook {
     <span class="c1"># Make sure to feed in your real data instead in your project!</span>
     <span class="c1">#ploty, left_fit_cr, right_fit_cr = generate_data(ym_per_pix, xm_per_pix)</span>
     <span class="n">ploty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">left_fit_cr</span> <span class="o">=</span> <span class="n">left_fit</span>
+    <span class="n">right_fit_cr</span> <span class="o">=</span> <span class="n">right_fit</span>
+    
     
     <span class="c1"># Define y-value where we want radius of curvature</span>
     <span class="c1"># We&#39;ll choose the maximum y-value, corresponding to the bottom of the image</span>
     <span class="n">y_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ploty</span><span class="p">)</span>
     
     <span class="c1">##### TO-DO: Implement the calculation of R_curve (radius of curvature) #####</span>
-    <span class="n">left_curverad</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">left_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">left_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">y_eval</span><span class="o">*</span><span class="n">ym_per_pix</span><span class="o">+</span><span class="n">left_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
-    <span class="n">right_curverad</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">right_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">right_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">y_eval</span><span class="o">*</span><span class="n">ym_per_pix</span><span class="o">+</span><span class="n">right_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
+    <span class="n">left_curverad</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">left_fit_cr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">left_fit_cr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">y_eval</span><span class="o">*</span><span class="n">ym_per_pix</span><span class="o">+</span><span class="n">left_fit_cr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
+    <span class="n">right_curverad</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">right_fit_cr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">right_fit_cr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">y_eval</span><span class="o">*</span><span class="n">ym_per_pix</span><span class="o">+</span><span class="n">right_fit_cr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
     
     <span class="c1"># Calculate offset</span>
-    <span class="n">offset</span> <span class="o">=</span> <span class="p">((</span><span class="n">left_fit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">right_fit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">xm_per_pix</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">((</span><span class="n">left_fitx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">right_fitx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">xm_per_pix</span>
     
     <span class="k">return</span> <span class="n">left_curverad</span><span class="p">,</span> <span class="n">right_curverad</span><span class="p">,</span> <span class="n">offset</span>
 </pre></div>
@@ -13626,7 +13698,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Project back the detected lanes region to original undistorted image</span>
@@ -13664,7 +13736,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># overlay radius (smaller between left and right) and offset (right +ve; left -ve)</span>
@@ -13691,10 +13763,36 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># return last n left and right polynomial coeff. and curves</span>
+<span class="k">def</span> <span class="nf">get_last_fitx_stat</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">line</span>
+
+    <span class="n">_l</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">recent_xfitted</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">:]</span>
+    <span class="n">_r</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">recent_xfitted</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">:]</span>
+    <span class="n">left_fitx_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_l</span><span class="p">)</span>
+    <span class="n">right_fitx_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">_r</span><span class="p">)</span>
+    <span class="n">left_fitx_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">_l</span><span class="p">)</span>
+    <span class="n">right_fitx_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">_r</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">left_fitx_mean</span><span class="p">,</span> <span class="n">left_fitx_std</span><span class="p">,</span> <span class="n">right_fitx_mean</span><span class="p">,</span> <span class="n">right_fitx_std</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">FindLaneLines</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">line</span>
+       
     <span class="c1"># apply undistortion from previous calibrated parameter of camera</span>
     <span class="n">img_undist</span> <span class="o">=</span> <span class="n">Undistort</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
     
@@ -13710,13 +13808,76 @@ div#notebook {
     <span class="n">img_unwarp</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">corners_unwarp</span><span class="p">(</span><span class="n">img_roi</span><span class="p">,</span> <span class="n">sROI</span><span class="p">,</span> <span class="n">dROI</span><span class="p">)</span>
     
     <span class="c1"># Interpolate lane lines</span>
-    <span class="n">img_fitted</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span> <span class="o">=</span> <span class="n">search_around_poly</span><span class="p">(</span><span class="n">img_unwarp</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># blind fit for first time</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">recent_xfitted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">img_fitted</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">fit_polynomial</span><span class="p">(</span><span class="n">img_unwarp</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># smart fit with last left_fit and right_fit</span>
+        <span class="n">left_fit</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">right_fit</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">img_fitted</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">search_around_poly</span><span class="p">(</span><span class="n">img_unwarp</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">)</span>
+        
+        <span class="c1"># go back to blind fit when smart fit failed</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="n">img_fitted</span><span class="p">,</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">fit_polynomial</span><span class="p">(</span><span class="n">img_unwarp</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+     
+    <span class="c1"># only save new data to buffer if no error</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="kc">False</span><span class="p">):</span>      
+        <span class="c1"># set window size for mean calculation</span>
+        <span class="n">nn</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">recent_xfitted</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">nn</span><span class="p">):</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">recent_xfitted</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="n">nn</span>
+        
+        <span class="c1"># calculate mean and standard deviation</span>
+        <span class="n">left_fitx_mean</span><span class="p">,</span> <span class="n">left_fitx_std</span><span class="p">,</span> <span class="n">right_fitx_mean</span><span class="p">,</span> <span class="n">right_fitx_std</span> <span class="o">=</span> <span class="n">get_last_fitx_stat</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        
+        <span class="c1">#print(abs(np.mean(left_fitx) - left_fitx_mean))</span>
+        <span class="c1">#print(left_fitx_std)</span>
+        <span class="c1">#print(abs(np.mean(right_fitx) - right_fitx_mean))</span>
+        <span class="c1">#print(right_fitx_std)</span>
+        <span class="c1">#print(abs(np.mean(left_fitx) - np.mean(right_fitx)) - abs(left_fitx_mean-right_fitx_mean))</span>
+        <span class="c1">#print(left_fitx_std + right_fitx_std)</span>
+        
+        <span class="c1">#print(np.mean(left_fitx))</span>
+        <span class="c1">#print(left_fitx_mean)</span>
+        <span class="c1">#print(np.mean(right_fitx))</span>
+        <span class="c1">#print(right_fitx_mean)</span>
+        
+        <span class="c1"># save new data to buffer only if </span>
+        <span class="c1"># initially before window size is filled, or</span>
+        <span class="c1"># mean (all left) is within one STDEV of historical mean of left, (same as right side), and</span>
+        <span class="c1"># mean of width is within one STDEV of historical mean of width</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">n</span> <span class="o">!=</span> <span class="o">-</span><span class="n">nn</span> <span class="ow">or</span> 
+            <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">left_fitx</span><span class="p">)</span> <span class="o">-</span> <span class="n">left_fitx_mean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="c1">#left_fitx_std and</span>
+             <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">right_fitx</span><span class="p">)</span> <span class="o">-</span> <span class="n">right_fitx_mean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="c1">#right_fitx_std and</span>
+             <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">left_fitx</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">right_fitx</span><span class="p">))</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="n">left_fitx_mean</span><span class="o">-</span><span class="n">right_fitx_mean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">)):</span> <span class="c1">#left_fitx_std + right_fitx_std )):</span>
+            
+            <span class="c1"># store all mean of left and right x</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">recent_xfitted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">line</span><span class="o">.</span><span class="n">recent_xfitted</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">left_fitx</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">right_fitx</span><span class="p">)]])))</span>
+
+            <span class="c1"># store all poly coeff. of left and right</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">current_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[(</span><span class="n">left_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">left_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+                                                                           <span class="p">(</span><span class="n">right_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">right_fit</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">]])))</span>
+            
+            <span class="c1"># store the calculated mean of poly co</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">best_fit</span> <span class="o">=</span> <span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">:]),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">:]),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">:])),</span>
+                             <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">:]),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">:]),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">:]))]</span>
+
+    <span class="c1"># retrieve last left_fit, right_fit, left_fitx, right_fitx    </span>
+    <span class="n">left_fit</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">right_fit</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">current_fit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ploty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">left_fitx</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">best_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">best_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">best_fit</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">right_fitx</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">best_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">best_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ploty</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">best_fit</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
     
+
     <span class="c1"># Project lane lines from 2D back to undistorted image</span>
-    <span class="n">img_unwarp</span> <span class="o">=</span> <span class="n">WarpProject</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">img_fitted</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dROI</span><span class="p">,</span> <span class="n">sROI</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">)</span>
+    <span class="n">img_unwarp</span> <span class="o">=</span> <span class="n">WarpProject</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">image</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dROI</span><span class="p">,</span> <span class="n">sROI</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">)</span>
     
     <span class="c1"># Measure radius and offset from detection</span>
-    <span class="n">left_curverad</span><span class="p">,</span> <span class="n">right_curverad</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">measure_curvature_real</span><span class="p">(</span><span class="n">img_fitted</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">)</span>
+    <span class="n">left_curverad</span><span class="p">,</span> <span class="n">right_curverad</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">measure_curvature_real</span><span class="p">(</span><span class="n">image</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">left_fit</span><span class="p">,</span> <span class="n">right_fit</span><span class="p">,</span> <span class="n">left_fitx</span><span class="p">,</span> <span class="n">right_fitx</span><span class="p">)</span>
     
     <span class="c1"># Overlay texts to image</span>
     <span class="n">img_final</span> <span class="o">=</span> <span class="n">put_Radius_Offset</span><span class="p">(</span><span class="n">img_unwarp</span><span class="p">,</span> <span class="n">left_curverad</span><span class="p">,</span> <span class="n">right_curverad</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
@@ -13731,7 +13892,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
@@ -13757,7 +13918,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">white_output</span> <span class="o">=</span> <span class="s1">&#39;test_videos_output/project_video.mp4&#39;</span>
@@ -13765,8 +13926,9 @@ div#notebook {
 <span class="c1">## To do so add .subclip(start_second,end_second) to the end of the line below</span>
 <span class="c1">## Where start_second and end_second are integer values representing the start and end of the subclip</span>
 <span class="c1">## You may also uncomment the following line for a subclip of the first 5 seconds</span>
-<span class="n">clip1</span> <span class="o">=</span> <span class="n">VideoFileClip</span><span class="p">(</span><span class="s2">&quot;test_videos/project_video.mp4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">subclip</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">clip1</span> <span class="o">=</span> <span class="n">VideoFileClip</span><span class="p">(</span><span class="s2">&quot;test_videos/project_video.mp4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">subclip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1">#clip1 = VideoFileClip(&quot;test_videos/project_video.mp4&quot;)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">line_reset</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 <span class="n">white_clip</span> <span class="o">=</span> <span class="n">clip1</span><span class="o">.</span><span class="n">fl_image</span><span class="p">(</span><span class="n">process_image</span><span class="p">)</span> <span class="c1">#NOTE: this function expects color images!!</span>
 <span class="o">%</span><span class="k">time</span> white_clip.write_videofile(white_output, audio=False)
 </pre></div>
@@ -13775,2154 +13937,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-Moviepy - Building video test_videos_output/project_video.mp4.
-Moviepy - Writing video test_videos_output/project_video.mp4
-
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   0%|                                                                             | 0/100 [00:00&lt;?, ?it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   2%|█▍                                                                   | 2/100 [00:00&lt;00:15,  6.35it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   3%|██                                                                   | 3/100 [00:00&lt;00:18,  5.31it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   4%|██▊                                                                  | 4/100 [00:00&lt;00:20,  4.78it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   5%|███▍                                                                 | 5/100 [00:01&lt;00:20,  4.61it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   6%|████▏                                                                | 6/100 [00:01&lt;00:20,  4.56it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   7%|████▊                                                                | 7/100 [00:01&lt;00:20,  4.47it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   8%|█████▌                                                               | 8/100 [00:01&lt;00:20,  4.51it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   9%|██████▏                                                              | 9/100 [00:01&lt;00:20,  4.35it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  10%|██████▊                                                             | 10/100 [00:02&lt;00:21,  4.22it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  11%|███████▍                                                            | 11/100 [00:02&lt;00:20,  4.25it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  12%|████████▏                                                           | 12/100 [00:02&lt;00:21,  4.00it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  13%|████████▊                                                           | 13/100 [00:03&lt;00:22,  3.88it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  14%|█████████▌                                                          | 14/100 [00:03&lt;00:21,  3.93it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  15%|██████████▏                                                         | 15/100 [00:03&lt;00:21,  3.99it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  16%|██████████▉                                                         | 16/100 [00:03&lt;00:20,  4.14it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  17%|███████████▌                                                        | 17/100 [00:04&lt;00:20,  4.06it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  18%|████████████▏                                                       | 18/100 [00:04&lt;00:20,  4.07it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  19%|████████████▉                                                       | 19/100 [00:04&lt;00:21,  3.79it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  20%|█████████████▌                                                      | 20/100 [00:04&lt;00:20,  3.85it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  21%|██████████████▎                                                     | 21/100 [00:05&lt;00:20,  3.86it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  22%|██████████████▉                                                     | 22/100 [00:05&lt;00:19,  3.95it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  23%|███████████████▋                                                    | 23/100 [00:05&lt;00:19,  3.91it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  24%|████████████████▎                                                   | 24/100 [00:05&lt;00:19,  3.89it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  25%|█████████████████                                                   | 25/100 [00:06&lt;00:18,  3.99it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  26%|█████████████████▋                                                  | 26/100 [00:06&lt;00:18,  3.92it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  27%|██████████████████▎                                                 | 27/100 [00:06&lt;00:18,  3.89it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  28%|███████████████████                                                 | 28/100 [00:06&lt;00:18,  3.91it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  29%|███████████████████▋                                                | 29/100 [00:07&lt;00:17,  3.97it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  30%|████████████████████▍                                               | 30/100 [00:07&lt;00:18,  3.81it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  31%|█████████████████████                                               | 31/100 [00:07&lt;00:17,  3.94it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  32%|█████████████████████▊                                              | 32/100 [00:07&lt;00:16,  4.03it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  33%|██████████████████████▍                                             | 33/100 [00:08&lt;00:15,  4.21it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  34%|███████████████████████                                             | 34/100 [00:08&lt;00:16,  4.10it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  35%|███████████████████████▊                                            | 35/100 [00:08&lt;00:15,  4.15it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  36%|████████████████████████▍                                           | 36/100 [00:08&lt;00:15,  4.17it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  37%|█████████████████████████▏                                          | 37/100 [00:09&lt;00:15,  4.18it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  38%|█████████████████████████▊                                          | 38/100 [00:09&lt;00:14,  4.27it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  39%|██████████████████████████▌                                         | 39/100 [00:09&lt;00:14,  4.30it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  40%|███████████████████████████▏                                        | 40/100 [00:09&lt;00:13,  4.41it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  41%|███████████████████████████▉                                        | 41/100 [00:09&lt;00:13,  4.40it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  42%|████████████████████████████▌                                       | 42/100 [00:10&lt;00:12,  4.47it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  43%|█████████████████████████████▏                                      | 43/100 [00:10&lt;00:12,  4.47it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  44%|█████████████████████████████▉                                      | 44/100 [00:10&lt;00:13,  4.18it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  45%|██████████████████████████████▌                                     | 45/100 [00:10&lt;00:13,  4.05it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  46%|███████████████████████████████▎                                    | 46/100 [00:11&lt;00:12,  4.18it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  47%|███████████████████████████████▉                                    | 47/100 [00:11&lt;00:12,  4.30it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  48%|████████████████████████████████▋                                   | 48/100 [00:11&lt;00:12,  4.29it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  49%|█████████████████████████████████▎                                  | 49/100 [00:11&lt;00:12,  4.13it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  50%|██████████████████████████████████                                  | 50/100 [00:12&lt;00:12,  4.15it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  51%|██████████████████████████████████▋                                 | 51/100 [00:12&lt;00:11,  4.12it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  52%|███████████████████████████████████▎                                | 52/100 [00:12&lt;00:11,  4.05it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  53%|████████████████████████████████████                                | 53/100 [00:12&lt;00:11,  3.96it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  54%|████████████████████████████████████▋                               | 54/100 [00:13&lt;00:11,  3.91it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  55%|█████████████████████████████████████▍                              | 55/100 [00:13&lt;00:11,  3.96it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  56%|██████████████████████████████████████                              | 56/100 [00:13&lt;00:11,  3.83it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  57%|██████████████████████████████████████▊                             | 57/100 [00:13&lt;00:11,  3.78it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  58%|███████████████████████████████████████▍                            | 58/100 [00:14&lt;00:11,  3.69it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  59%|████████████████████████████████████████                            | 59/100 [00:14&lt;00:11,  3.52it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  60%|████████████████████████████████████████▊                           | 60/100 [00:14&lt;00:10,  3.65it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  61%|█████████████████████████████████████████▍                          | 61/100 [00:15&lt;00:10,  3.72it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  62%|██████████████████████████████████████████▏                         | 62/100 [00:15&lt;00:10,  3.73it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  63%|██████████████████████████████████████████▊                         | 63/100 [00:15&lt;00:10,  3.66it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  64%|███████████████████████████████████████████▌                        | 64/100 [00:15&lt;00:09,  3.73it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  65%|████████████████████████████████████████████▏                       | 65/100 [00:16&lt;00:09,  3.71it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  66%|████████████████████████████████████████████▉                       | 66/100 [00:16&lt;00:09,  3.76it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  67%|█████████████████████████████████████████████▌                      | 67/100 [00:16&lt;00:08,  3.77it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  68%|██████████████████████████████████████████████▏                     | 68/100 [00:16&lt;00:08,  3.66it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  69%|██████████████████████████████████████████████▉                     | 69/100 [00:17&lt;00:08,  3.87it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  70%|███████████████████████████████████████████████▌                    | 70/100 [00:17&lt;00:07,  3.91it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  71%|████████████████████████████████████████████████▎                   | 71/100 [00:17&lt;00:07,  3.97it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  72%|████████████████████████████████████████████████▉                   | 72/100 [00:17&lt;00:07,  3.95it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  73%|█████████████████████████████████████████████████▋                  | 73/100 [00:18&lt;00:07,  3.72it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  74%|██████████████████████████████████████████████████▎                 | 74/100 [00:18&lt;00:07,  3.70it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  75%|███████████████████████████████████████████████████                 | 75/100 [00:18&lt;00:06,  3.80it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  76%|███████████████████████████████████████████████████▋                | 76/100 [00:18&lt;00:06,  3.93it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  77%|████████████████████████████████████████████████████▎               | 77/100 [00:19&lt;00:05,  3.88it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  78%|█████████████████████████████████████████████████████               | 78/100 [00:19&lt;00:05,  3.81it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  79%|█████████████████████████████████████████████████████▋              | 79/100 [00:19&lt;00:05,  3.89it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  80%|██████████████████████████████████████████████████████▍             | 80/100 [00:19&lt;00:04,  4.00it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  81%|███████████████████████████████████████████████████████             | 81/100 [00:20&lt;00:04,  3.93it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  82%|███████████████████████████████████████████████████████▊            | 82/100 [00:20&lt;00:04,  3.90it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  83%|████████████████████████████████████████████████████████▍           | 83/100 [00:20&lt;00:04,  3.90it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  84%|█████████████████████████████████████████████████████████           | 84/100 [00:20&lt;00:03,  4.05it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  85%|█████████████████████████████████████████████████████████▊          | 85/100 [00:21&lt;00:03,  3.95it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  86%|██████████████████████████████████████████████████████████▍         | 86/100 [00:21&lt;00:03,  3.94it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  87%|███████████████████████████████████████████████████████████▏        | 87/100 [00:21&lt;00:03,  4.00it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  88%|███████████████████████████████████████████████████████████▊        | 88/100 [00:21&lt;00:02,  4.08it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  89%|████████████████████████████████████████████████████████████▌       | 89/100 [00:22&lt;00:02,  3.94it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  90%|█████████████████████████████████████████████████████████████▏      | 90/100 [00:22&lt;00:02,  3.93it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  91%|█████████████████████████████████████████████████████████████▉      | 91/100 [00:22&lt;00:02,  3.99it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  92%|██████████████████████████████████████████████████████████████▌     | 92/100 [00:22&lt;00:02,  3.97it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  93%|███████████████████████████████████████████████████████████████▏    | 93/100 [00:23&lt;00:01,  4.02it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  94%|███████████████████████████████████████████████████████████████▉    | 94/100 [00:23&lt;00:01,  3.99it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  95%|████████████████████████████████████████████████████████████████▌   | 95/100 [00:23&lt;00:01,  4.10it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  96%|█████████████████████████████████████████████████████████████████▎  | 96/100 [00:23&lt;00:00,  4.09it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  97%|█████████████████████████████████████████████████████████████████▉  | 97/100 [00:24&lt;00:00,  4.08it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  98%|██████████████████████████████████████████████████████████████████▋ | 98/100 [00:24&lt;00:00,  4.06it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t:  99%|███████████████████████████████████████████████████████████████████▎| 99/100 [00:24&lt;00:00,  4.12it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>t: 100%|███████████████████████████████████████████████████████████████████| 100/100 [00:24&lt;00:00,  4.06it/s, now=None]</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>                                                                                                                       </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Moviepy - Done !
-Moviepy - video ready test_videos_output/project_video.mp4
-Wall time: 27.3 s
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -15933,29 +13951,6 @@ Wall time: 27.3 s
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[25]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="960" height="540" controls>
-  <source src="test_videos_output/project_video.mp4">
-</video>
-
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -15969,7 +13964,7 @@ Wall time: 27.3 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">white_output</span> <span class="o">=</span> <span class="s1">&#39;test_videos_output/challenge_video.mp4&#39;</span>
@@ -15977,8 +13972,9 @@ Wall time: 27.3 s
 <span class="c1">## To do so add .subclip(start_second,end_second) to the end of the line below</span>
 <span class="c1">## Where start_second and end_second are integer values representing the start and end of the subclip</span>
 <span class="c1">## You may also uncomment the following line for a subclip of the first 5 seconds</span>
-<span class="n">clip1</span> <span class="o">=</span> <span class="n">VideoFileClip</span><span class="p">(</span><span class="s2">&quot;test_videos/challenge_video.mp4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">subclip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1">#clip1 = VideoFileClip(&quot;test_videos/project_video.mp4&quot;)</span>
+<span class="c1">#clip1 = VideoFileClip(&quot;test_videos/challenge_video.mp4&quot;).subclip(0,3)</span>
+<span class="n">clip1</span> <span class="o">=</span> <span class="n">VideoFileClip</span><span class="p">(</span><span class="s2">&quot;test_videos/challenge_video.mp4&quot;</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">line_reset</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 <span class="n">white_clip</span> <span class="o">=</span> <span class="n">clip1</span><span class="o">.</span><span class="n">fl_image</span><span class="p">(</span><span class="n">process_image</span><span class="p">)</span> <span class="c1">#NOTE: this function expects color images!!</span>
 <span class="o">%</span><span class="k">time</span> white_clip.write_videofile(white_output, audio=False)
 </pre></div>
@@ -15987,53 +13983,10 @@ Wall time: 27.3 s
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Moviepy - Building video test_videos_output/challenge_video.mp4.
-Moviepy - Writing video test_videos_output/challenge_video.mp4
-
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>                                                                                                                       </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Moviepy - Done !
-Moviepy - video ready test_videos_output/challenge_video.mp4
-Wall time: 20.1 s
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -16044,29 +13997,6 @@ Wall time: 20.1 s
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[21]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="960" height="540" controls>
-  <source src="test_videos_output/challenge_video.mp4">
-</video>
-
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -16080,7 +14010,7 @@ Wall time: 20.1 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">white_output</span> <span class="o">=</span> <span class="s1">&#39;test_videos_output/harder_challenge_video.mp4&#39;</span>
@@ -16088,8 +14018,9 @@ Wall time: 20.1 s
 <span class="c1">## To do so add .subclip(start_second,end_second) to the end of the line below</span>
 <span class="c1">## Where start_second and end_second are integer values representing the start and end of the subclip</span>
 <span class="c1">## You may also uncomment the following line for a subclip of the first 5 seconds</span>
-<span class="n">clip1</span> <span class="o">=</span> <span class="n">VideoFileClip</span><span class="p">(</span><span class="s2">&quot;test_videos/harder_challenge_video.mp4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">subclip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1">#clip1 = VideoFileClip(&quot;test_videos/project_video.mp4&quot;)</span>
+<span class="c1">#clip1 = VideoFileClip(&quot;test_videos/harder_challenge_video.mp4&quot;).subclip(0,3)</span>
+<span class="n">clip1</span> <span class="o">=</span> <span class="n">VideoFileClip</span><span class="p">(</span><span class="s2">&quot;test_videos/harder_challenge_video.mp4&quot;</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">line_reset</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 <span class="n">white_clip</span> <span class="o">=</span> <span class="n">clip1</span><span class="o">.</span><span class="n">fl_image</span><span class="p">(</span><span class="n">process_image</span><span class="p">)</span> <span class="c1">#NOTE: this function expects color images!!</span>
 <span class="o">%</span><span class="k">time</span> white_clip.write_videofile(white_output, audio=False)
 </pre></div>
@@ -16098,53 +14029,10 @@ Wall time: 20.1 s
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Moviepy - Building video test_videos_output/harder_challenge_video.mp4.
-Moviepy - Writing video test_videos_output/harder_challenge_video.mp4
-
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>                                                                                                                       </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Moviepy - Done !
-Moviepy - video ready test_videos_output/harder_challenge_video.mp4
-Wall time: 19.7 s
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -16155,29 +14043,6 @@ Wall time: 19.7 s
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[23]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-<video width="960" height="540" controls>
-  <source src="test_videos_output/harder_challenge_video.mp4">
-</video>
-
-</div>
-
-</div>
-
 </div>
 </div>
 
